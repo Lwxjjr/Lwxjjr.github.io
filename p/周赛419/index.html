@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="心路历程：\n前2题目没有考虑性质，写了很长的代码 第三题优化问题超时 第四题没看到（补） 1. 2. 第k大的完美二叉树的大小 给你一棵二叉树 的根节点 root 和一个整数 k。\n返回第 k 大的完美二叉子树的大小，如果不存在则返回 -1。\n完美二叉树 是指所有叶子节点都在同一层级的树，且每个父节点恰有两个子节点。\n">
+<title>周赛419</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/'>
+
+<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="周赛419">
+<meta property='og:description' content="心路历程：\n前2题目没有考虑性质，写了很长的代码 第三题优化问题超时 第四题没看到（补） 1. 2. 第k大的完美二叉树的大小 给你一棵二叉树 的根节点 root 和一个整数 k。\n返回第 k 大的完美二叉子树的大小，如果不存在则返回 -1。\n完美二叉树 是指所有叶子节点都在同一层级的树，且每个父节点恰有两个子节点。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/'>
+<meta property='og:site_name' content='WxxxL&#39; Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-01T17:12:32&#43;08:00'/><meta property='article:modified_time' content='2024-11-01T17:12:32&#43;08:00'/>
+<meta name="twitter:title" content="周赛419">
+<meta name="twitter:description" content="心路历程：\n前2题目没有考虑性质，写了很长的代码 第三题优化问题超时 第四题没看到（补） 1. 2. 第k大的完美二叉树的大小 给你一棵二叉树 的根节点 root 和一个整数 k。\n返回第 k 大的完美二叉子树的大小，如果不存在则返回 -1。\n完美二叉树 是指所有叶子节点都在同一层级的树，且每个父节点恰有两个子节点。\n">
+    <link rel="shortcut icon" href="/favicon" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/gopher%281%29_hu12805403635512109268.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">WxxxL&#39; Blog</a></h1>
+            <h2 class="site-description">你们知道，什么动物最安静吗？是大猩猩🦍，因为他生气的时候爱敲咪咪🤣</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://Lwxjjr.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/en/" >English</option>
+                                
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1">1.</a></li>
+    <li><a href="#2-第k大的完美二叉树的大小">2. 第k大的完美二叉树的大小</a></li>
+    <li><a href="#解答">解答：</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#解答-1">解答：</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%91%A8%E8%B5%9B419/">周赛419</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 01, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>心路历程：<br></p>
+<ol>
+<li>前2题目没有考虑性质，写了很长的代码</li>
+<li>第三题优化问题超时</li>
+<li>第四题没看到（补）</li>
+</ol>
+<hr>
+<h2 id="1">1.
+</h2><hr>
+<h2 id="2-第k大的完美二叉树的大小">2. 第k大的完美二叉树的大小
+</h2><p>给你一棵<strong>二叉树</strong> 的根节点 <code>root</code> 和一个整数 <code>k</code>。<br>
+返回第 <code>k</code> 大的完美二叉子树的大小，如果不存在则返回 <code>-1</code>。<br>
+<strong>完美二叉树</strong> 是指所有叶子节点都在同一层级的树，且每个父节点恰有两个子节点。</p>
+<p>示例1：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">input: <span class="nv">root</span> <span class="o">=</span> <span class="o">[</span>5,3,6,5,2,5,7,1,8,null,null,6,8<span class="o">]</span>, <span class="nv">k</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">output: <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解释：<img src="/%e4%ba%8c%e5%8f%89%e6%a0%91%e7%a4%ba%e4%be%8b1.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1"
+	
+	
+></p>
+<p>完美二叉子树的根节点在图中以黑色突出显示。<br>
+它们的大小按非递增顺序排列为 <code>[3, 3, 1, 1, 1, 1, 1, 1]</code>。<br>
+第 <code>2</code> 大的完美二叉子树的大小是 3。</p>
+<hr>
+<h2 id="解答">解答：
+</h2><p>
+根据完美二叉树的定义，一颗高度为 `h` 的完美二叉树，从上往下，每一层有 $1, 2, 4, ..., 2^{h-1}$ 个节点，其子树的大小为 $1 + 2 + 4 + ... + 2^{h-1}$ = $2^h-1$，这样通过子树的高度既可确认子树的大小，我们在 **dfs** 中传参只需要传入高度即可。<p>
+**判断条件**：
+- 当前节点为空，返回 0
+- 对于完美二叉树，左右子树的高度应该相等，判断如果相等则返回 `leftH+1`，否子返回`-1`
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">kthLargestPerfectSubtree</span><span class="p">(</span><span class="nx">root</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">,</span> <span class="nx">k</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ans</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">dfs</span> <span class="kd">func</span><span class="p">(</span><span class="nx">node</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dfs</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">node</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">node</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">leftH</span> <span class="o">:=</span> <span class="nf">dfs</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">Left</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">rightH</span> <span class="o">:=</span> <span class="nf">dfs</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">leftH</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">rightH</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">leftH</span> <span class="o">!=</span> <span class="nx">rightH</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="c1">// 不合法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ans</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span> <span class="nx">leftH</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">leftH</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 完美二叉树的数量 &lt; k 返回 -1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">k</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">ans</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">slices</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">ans</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nx">ans</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">ans</span><span class="p">)</span><span class="o">-</span><span class="nx">k</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h1 id="3-统计能获胜的出招序列数">3. 统计能获胜的出招序列数
+</h1><p>Alice 和 Bob 正在玩一个幻想战斗游戏，游戏共有 <code>n</code> 回合，每回合双方各自都会召唤一个魔法生物：火龙（<code>F</code>）、水蛇（<code>W</code>）或地精（<code>E</code>）。每回合中，双方 同时 召唤魔法生物，并根据以下规则得分：</p>
+<ul>
+<li>如果一方召唤火龙而另一方召唤地精，召唤 <strong>火龙</strong> 的玩家将获得一分。</li>
+<li>如果一方召唤水蛇而另一方召唤火龙，召唤 <strong>水蛇</strong> 的玩家将获得一分。</li>
+<li>如果一方召唤地精而另一方召唤水蛇，召唤 <strong>地精</strong> 的玩家将获得一分。</li>
+<li>如果双方召唤相同的生物，那么两个玩家都不会获得分数。</li>
+</ul>
+<p>给你一个字符串 <code>s</code>，包含 n 个字符 <code>'F'</code>、<code>'W'</code> 和 <code>'E'</code>，代表 Alice 每回合召唤的生物序列：</p>
+<ul>
+<li>如果 <code>s[i] == 'F'</code>，Alice 召唤火龙。</li>
+<li>如果 <code>s[i] == 'W'</code>，Alice 召唤水蛇。</li>
+<li>如果 <code>s[i] == 'E'</code>，Alice 召唤地精。</li>
+</ul>
+<p>Bob 的出招序列未知，但保证 Bob 不会在连续两个回合中召唤相同的生物。如果在 <code>n</code> 轮后 Bob 获得的总分 严格大于 Alice 的总分，则 Bob 战胜 Alice。</p>
+<p>返回 Bob 可以用来战胜 Alice 的不同出招序列的数量。</p>
+<p>由于答案可能非常大，请返回答案对 $10^9 + 7$ <strong>取余</strong>后的结果。<p>
+示例1：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">input: <span class="nv">s</span> <span class="o">=</span> <span class="s2">&#34;FFF&#34;</span>
+</span></span><span class="line"><span class="cl">output: <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解释：
+Bob 可以通过以下 3 种出招序列战胜 Alice：<code>&quot;WFW&quot;</code>、<code>&quot;FWF&quot;</code> 或 <code>&quot;WEW&quot;</code>。</p>
+<hr>
+<h2 id="解答-1">解答：
+</h2><p>
+像打家劫舍一样，我们从后往前思考
+因为不能连续2回合召唤相同的生物，我们需要一个变量来记录上个回合使用的生物，即这回合不能使用的生物<br>
+我们在递归的过程中维护3个变量：<br>
+- `i` : 当前回合
+- `diff` ：当前和对手的分差
+- `ban` ：上个回合使用的生物，即这回合不能使用的生物
+<p>因此，定义<code>dfs(i, diff, ban)</code>为从<code>i</code>到<code>0</code>个回合，当前和对手的分差为<code>diff</code>，且第<code>i</code>回合我们无法召唤的生物为<code>ban</code>的情况下，战胜对手的不同出招序列的数量<p>
+下一步是思考如何定义状态转移<br>
+在<a class="link" href="https://www.bilibili.com/video/BV1zU2zYiEa4/?spm_id_from=333.337.search-card.all.click&amp;vd_source=3dea5bb65f58ca676b979c20b9f44ce4"  target="_blank" rel="noopener"
+    >灵茶山艾府的周赛讲解</a>中对<code>F</code>，<code>W</code>，<code>E</code>修改分别记作<code>0</code>，<code>1</code>，<code>2</code>，即枚举第<code>i</code>回合召唤的生物为 <code>k = 0，1，2 &amp;&amp; k != ban</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">mp</span> <span class="o">:=</span> <span class="p">{</span><span class="s">&#34;F: 0&#34;</span><span class="p">,</span> <span class="s">&#34;W: 1&#34;</span><span class="p">,</span> <span class="s">&#34;E: 2&#34;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们希望<code>diff</code>的值如下图所示（左右侧分别代表我方和对方选择生物）：<br>
+<img src="/diff.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="差值"
+	
+	
+>
+这样看起来很完美，但是有 2 个特殊的组合该怎么处理？我们定义<code>0</code>，<code>1</code>，<code>2</code>的好处就来了，也就是3个值轮换，我们注意到有三个数字意味着<code>(diff + 3) % 3 = diff</code>，这样做可以比较好地处理所有的情况了，额外计算一下<code>score = 2</code>的情况即可，计算第<code>i</code>回合的差值<code>score</code>为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">score</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">k</span> <span class="o">-</span> <span class="nx">mp</span><span class="p">[</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">score</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">score</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>显然，我们要记录从i到0的战胜对手不同出招序列的数量，又存在大量的递归调用，我们可以采取记忆化搜索的方式</p>
+<ol>
+<li>查看一下当前状态是否已经被计算过
+<ul>
+<li>不是：将状态及其结果记录到<code>memo</code>数组中</li>
+<li>是：return <code>memo</code>保存的结果</li>
+</ul>
+</li>
+<li>然后枚举这回合能召唤的生物<code>k</code>且<code>k!=ban</code>
+<ul>
+<li>计算<code>score</code></li>
+<li>问题变成从<code>i-1</code>到<code>0</code>，我们和对手的分差为<code>diff+score</code>且第<code>i-1</code>回合我们无法召唤生物为<code>k</code>的情况下，战胜对手的不同出招序列的数量，<code>dfs(i−1,diff+score,k)</code></li>
+</ul>
+</li>
+<li>维护<code>res</code>累加<code>dfs(i−1,diff+score,k)</code>，记录在<code>dfs(i,diff,ban)</code>中</li>
+</ol>
+<p>这里注意 2 个减枝</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">-</span><span class="nx">diff</span> <span class="p">&gt;</span> <span class="nx">i</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">diff</span> <span class="p">&gt;</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">pow2</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果 <code>-diff &gt; i</code>，意味着现在的分差在后面的回合中全胜也无法战胜对手，返回 0</li>
+<li>如果 <code>diff &gt; i</code>，意味着即使后面全败也能战胜对手，因为还剩下<code>i+1</code>个回合，每回合去掉<code>ban</code>的生物，每回合能召唤 2 个生物中的一个，方案数为 $2^{i+1}$，返回 $2^{i+1}$</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">countWinningSequences</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">const</span> <span class="nx">mod</span> <span class="p">=</span> <span class="mi">1_000_000_007</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nx">pow2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pow2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">pow2</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">pow2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">pow2</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">%</span> <span class="nx">mod</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">mp</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="sc">&#39;F&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="sc">&#39;W&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">memo</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][][</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">memo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">memo</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([][</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">n</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">memo</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">memo</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* 
+</span></span></span><span class="line"><span class="cl"><span class="cm">    i：第i回合，对手召唤是s[i]
+</span></span></span><span class="line"><span class="cl"><span class="cm">    diff：分差
+</span></span></span><span class="line"><span class="cl"><span class="cm">    ban：这回合我们不能召唤的生物
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">dfs</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dfs</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">diff</span><span class="p">,</span> <span class="nx">ban</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">res</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">-</span><span class="nx">diff</span> <span class="p">&gt;</span> <span class="nx">i</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">diff</span> <span class="p">&gt;</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">pow2</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">memo</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">diff</span><span class="o">+</span><span class="nx">n</span><span class="p">][</span><span class="nx">ban</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">*</span><span class="nx">p</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">*</span><span class="nx">p</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">k</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span> <span class="p">{</span> <span class="c1">// 枚举这回合能召唤的生物
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="nx">n</span><span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="nx">k</span> <span class="o">!=</span> <span class="nx">ban</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">score</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">k</span> <span class="o">-</span> <span class="nx">mp</span><span class="p">[</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nx">score</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">score</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">res</span> <span class="o">+=</span> <span class="nf">dfs</span><span class="p">(</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">diff</span><span class="o">+</span><span class="nx">score</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">res</span> <span class="o">%=</span> <span class="nx">mod</span>
+</span></span><span class="line"><span class="cl">        <span class="o">*</span><span class="nx">p</span> <span class="p">=</span> <span class="nx">res</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">dfs</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 WxxxL
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
