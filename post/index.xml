@@ -2,27 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on WxxxL&#39; Blog</title>
-        <link>http://localhost:1313/post/</link>
+        <link>https://Lwxjjr.github.io/post/</link>
         <description>Recent content in Posts on WxxxL&#39; Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WxxxL</copyright>
-        <lastBuildDate>Fri, 01 Nov 2024 17:12:32 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://Lwxjjr.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>周赛419</title>
-        <link>http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/</link>
-        <pubDate>Fri, 01 Nov 2024 17:12:32 +0800</pubDate>
+        <link>https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/</link>
+        <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/</guid>
-        <description>&lt;p&gt;心路历程：&lt;br&gt;&lt;/p&gt;
+        <guid>https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/</guid>
+        <description>&lt;img src="https://Lwxjjr.github.io/image.jpg" alt="Featured image of post 周赛419" /&gt;&lt;p&gt;心路历程：&lt;br&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;前2题目没有考虑性质，写了很长的代码&lt;/li&gt;
 &lt;li&gt;第三题优化问题超时&lt;/li&gt;
 &lt;li&gt;第四题没看到（补）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;1&#34;&gt;1.
-&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&#34;2-第k大的完美二叉树的大小&#34;&gt;2. 第k大的完美二叉树的大小
+&lt;/h2&gt;&lt;h2 id=&#34;2-第k大的完美二叉树的大小&#34;&gt;2. 第k大的完美二叉树的大小
 &lt;/h2&gt;&lt;p&gt;给你一棵&lt;strong&gt;二叉树&lt;/strong&gt; 的根节点 &lt;code&gt;root&lt;/code&gt; 和一个整数 &lt;code&gt;k&lt;/code&gt;。&lt;br&gt;
 返回第 &lt;code&gt;k&lt;/code&gt; 大的完美二叉子树的大小，如果不存在则返回 &lt;code&gt;-1&lt;/code&gt;。&lt;br&gt;
 &lt;strong&gt;完美二叉树&lt;/strong&gt; 是指所有叶子节点都在同一层级的树，且每个父节点恰有两个子节点。&lt;/p&gt;
@@ -37,20 +35,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;output: &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;解释：&lt;img src=&#34;http://localhost:1313/%e4%ba%8c%e5%8f%89%e6%a0%91%e7%a4%ba%e4%be%8b1.png&#34;
+&lt;/div&gt;&lt;p&gt;解释：&lt;img src=&#34;https://Lwxjjr.github.io/%e4%ba%8c%e5%8f%89%e6%a0%91%e7%a4%ba%e4%be%8b1.jpg&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;1&#34;
+		alt=&#34;示例1&#34;
 	
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;完美二叉子树的根节点在图中以黑色突出显示。&lt;br&gt;
 它们的大小按非递增顺序排列为 &lt;code&gt;[3, 3, 1, 1, 1, 1, 1, 1]&lt;/code&gt;。&lt;br&gt;
 第 &lt;code&gt;2&lt;/code&gt; 大的完美二叉子树的大小是 3。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;解答&#34;&gt;解答：
 &lt;/h2&gt;&lt;p&gt;
 根据完美二叉树的定义，一颗高度为 `h` 的完美二叉树，从上往下，每一层有 $1, 2, 4, ..., 2^{h-1}$ 个节点，其子树的大小为 $1 + 2 + 4 + ... + 2^{h-1}$ = $2^h-1$，这样通过子树的高度既可确认子树的大小，我们在 **dfs** 中传参只需要传入高度即可。&lt;p&gt;
@@ -109,8 +106,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;hr&gt;
-&lt;h1 id=&#34;3-统计能获胜的出招序列数&#34;&gt;3. 统计能获胜的出招序列数
+&lt;/div&gt;&lt;h1 id=&#34;3-统计能获胜的出招序列数&#34;&gt;3. 统计能获胜的出招序列数
 &lt;/h1&gt;&lt;p&gt;Alice 和 Bob 正在玩一个幻想战斗游戏，游戏共有 &lt;code&gt;n&lt;/code&gt; 回合，每回合双方各自都会召唤一个魔法生物：火龙（&lt;code&gt;F&lt;/code&gt;）、水蛇（&lt;code&gt;W&lt;/code&gt;）或地精（&lt;code&gt;E&lt;/code&gt;）。每回合中，双方 同时 召唤魔法生物，并根据以下规则得分：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如果一方召唤火龙而另一方召唤地精，召唤 &lt;strong&gt;火龙&lt;/strong&gt; 的玩家将获得一分。&lt;/li&gt;
@@ -140,15 +136,16 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;解释：
 Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW&amp;quot;&lt;/code&gt;、&lt;code&gt;&amp;quot;FWF&amp;quot;&lt;/code&gt; 或 &lt;code&gt;&amp;quot;WEW&amp;quot;&lt;/code&gt;。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;解答-1&#34;&gt;解答：
 &lt;/h2&gt;&lt;p&gt;
 像打家劫舍一样，我们从后往前思考
 因为不能连续2回合召唤相同的生物，我们需要一个变量来记录上个回合使用的生物，即这回合不能使用的生物&lt;br&gt;
 我们在递归的过程中维护3个变量：&lt;br&gt;
-- `i` : 当前回合
-- `diff` ：当前和对手的分差
-- `ban` ：上个回合使用的生物，即这回合不能使用的生物
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;i&lt;/code&gt; : 当前回合&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;diff&lt;/code&gt; ：当前和对手的分差&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ban&lt;/code&gt; ：上个回合使用的生物，即这回合不能使用的生物&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;因此，定义&lt;code&gt;dfs(i, diff, ban)&lt;/code&gt;为从&lt;code&gt;i&lt;/code&gt;到&lt;code&gt;0&lt;/code&gt;个回合，当前和对手的分差为&lt;code&gt;diff&lt;/code&gt;，且第&lt;code&gt;i&lt;/code&gt;回合我们无法召唤的生物为&lt;code&gt;ban&lt;/code&gt;的情况下，战胜对手的不同出招序列的数量&lt;p&gt;
 下一步是思考如何定义状态转移&lt;br&gt;
 在&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1zU2zYiEa4/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=3dea5bb65f58ca676b979c20b9f44ce4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -162,7 +159,7 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;我们希望&lt;code&gt;diff&lt;/code&gt;的值如下图所示（左右侧分别代表我方和对方选择生物）：&lt;br&gt;
-&lt;img src=&#34;http://localhost:1313/photos/%e5%b7%ae%e5%80%bc.png&#34;
+&lt;img src=&#34;https://Lwxjjr.github.io/diff.jpg&#34;
 	
 	
 	
@@ -336,11 +333,11 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
         </item>
         <item>
         <title>Chinese Test</title>
-        <link>http://localhost:1313/p/test-chinese/</link>
+        <link>https://Lwxjjr.github.io/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/test-chinese/</guid>
-        <description>&lt;img src="http://localhost:1313/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;h2 id=&#34;正文测试&#34;&gt;正文测试
+        <guid>https://Lwxjjr.github.io/p/test-chinese/</guid>
+        <description>&lt;img src="https://Lwxjjr.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;h2 id=&#34;正文测试&#34;&gt;正文测试
 &lt;/h2&gt;&lt;p&gt;而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下学生会退会。 既然如何， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 我们不得不面对一个非常尴尬的事实，那就是， 可是，即使是这样，学生会退会的出现仍然代表了一定的意义。 学生会退会，发生了会如何，不发生又会如何。 经过上述讨论， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 学生会退会，到底应该如何实现。 这样看来， 在这种困难的抉择下，本人思来想去，寝食难安。 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 就我个人来说，学生会退会对我的意义，不能不说非常重大。 莎士比亚曾经提到过，人的一生是短的，但如果卑劣地过这一生，就太长了。这似乎解答了我的疑惑。 莫扎特说过一句富有哲理的话，谁和我一样用功，谁就会和我一样成功。这启发了我， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 学生会退会，到底应该如何实现。 一般来说， 从这个角度来看， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 在这种困难的抉择下，本人思来想去，寝食难安。 了解清楚学生会退会到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 问题的关键究竟为何？ 而这些并不是完全重要，更加重要的问题是。&lt;/p&gt;
 &lt;p&gt;奥斯特洛夫斯基曾经说过，共同的事业，共同的斗争，可以使人们产生忍受一切的力量。　带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下学生会退会。 我认为， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 问题的关键究竟为何？ 每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，学生会退会，到底是一种怎么样的存在。 我认为， 既然如此， 每个人都不得不面对这些问题。 在面对这种问题时， 那么， 我认为， 学生会退会因何而发生。&lt;/p&gt;
 &lt;h2 id=&#34;引用&#34;&gt;引用
@@ -353,10 +350,10 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
     &gt;最暖的憂傷 - 田馥甄&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;图片&#34;&gt;图片
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://Lwxjjr.github.io/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg&#34;
 	width=&#34;667&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;http://localhost:1313/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu13768363498926278726.jpg 480w, http://localhost:1313/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu13380208884366868750.jpg 1024w&#34;
+	srcset=&#34;https://Lwxjjr.github.io/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu13768363498926278726.jpg 480w, https://Lwxjjr.github.io/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu13380208884366868750.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Florian Klauer on Unsplash&#34;
@@ -366,10 +363,10 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
 		data-flex-grow=&#34;66&#34;
 		data-flex-basis=&#34;160px&#34;
 	
-&gt;  &lt;img src=&#34;http://localhost:1313/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg&#34;
+&gt;  &lt;img src=&#34;https://Lwxjjr.github.io/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;667&#34;
-	srcset=&#34;http://localhost:1313/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu1712544344331247820.jpg 480w, http://localhost:1313/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu12475395149584884402.jpg 1024w&#34;
+	srcset=&#34;https://Lwxjjr.github.io/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu1712544344331247820.jpg 480w, https://Lwxjjr.github.io/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu12475395149584884402.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Luca Bravo on Unsplash&#34;
@@ -380,10 +377,10 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
 		data-flex-basis=&#34;359px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://Lwxjjr.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;750&#34;
-	srcset=&#34;http://localhost:1313/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu8363585391189779282.jpg 480w, http://localhost:1313/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu15102473124145023839.jpg 1024w&#34;
+	srcset=&#34;https://Lwxjjr.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu8363585391189779282.jpg 480w, https://Lwxjjr.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu15102473124145023839.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Helena Hertz on Unsplash&#34;
@@ -393,10 +390,10 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
 		data-flex-grow=&#34;133&#34;
 		data-flex-basis=&#34;320px&#34;
 	
-&gt;  &lt;img src=&#34;http://localhost:1313/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&#34;
+&gt;  &lt;img src=&#34;https://Lwxjjr.github.io/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&#34;
 	width=&#34;667&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;http://localhost:1313/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu15886963791847885497.jpg 480w, http://localhost:1313/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu11726476772237334826.jpg 1024w&#34;
+	srcset=&#34;https://Lwxjjr.github.io/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu15886963791847885497.jpg 480w, https://Lwxjjr.github.io/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu11726476772237334826.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Hudai Gayiran on Unsplash&#34;
@@ -425,11 +422,11 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
         </item>
         <item>
         <title>Markdown Syntax Guide</title>
-        <link>http://localhost:1313/p/markdown-syntax-guide/</link>
+        <link>https://Lwxjjr.github.io/p/markdown-syntax-guide/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/markdown-syntax-guide/</guid>
-        <description>&lt;img src="http://localhost:1313/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+        <guid>https://Lwxjjr.github.io/p/markdown-syntax-guide/</guid>
+        <description>&lt;img src="https://Lwxjjr.github.io/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
 &lt;h2 id=&#34;headings&#34;&gt;Headings
 &lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
 &lt;h1 id=&#34;h1&#34;&gt;H1
@@ -655,11 +652,11 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
         </item>
         <item>
         <title>Placeholder Text</title>
-        <link>http://localhost:1313/p/placeholder-text/</link>
+        <link>https://Lwxjjr.github.io/p/placeholder-text/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/placeholder-text/</guid>
-        <description>&lt;img src="http://localhost:1313/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
+        <guid>https://Lwxjjr.github.io/p/placeholder-text/</guid>
+        <description>&lt;img src="https://Lwxjjr.github.io/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
 &lt;p&gt;Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Exierant elisi ambit vivere dedere&lt;/li&gt;
@@ -686,10 +683,10 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
         </item>
         <item>
         <title>Math Typesetting</title>
-        <link>http://localhost:1313/p/math-typesetting/</link>
+        <link>https://Lwxjjr.github.io/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/math-typesetting/</guid>
+        <guid>https://Lwxjjr.github.io/p/math-typesetting/</guid>
         <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
 &lt;p&gt;In this example we will be using &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX&lt;/a&gt;&lt;/p&gt;
@@ -727,11 +724,11 @@ $$&lt;/p&gt;</description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>http://localhost:1313/p/emoji-support/</link>
+        <link>https://Lwxjjr.github.io/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/emoji-support/</guid>
-        <description>&lt;img src="http://localhost:1313/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>https://Lwxjjr.github.io/p/emoji-support/</guid>
+        <description>&lt;img src="https://Lwxjjr.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
