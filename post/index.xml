@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on WxxxL&#39; Blog</title>
-        <link>http://localhost:1313/post/</link>
+        <link>https://Lwxjjr.github.io/post/</link>
         <description>Recent content in Posts on WxxxL&#39; Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WxxxL</copyright>
-        <lastBuildDate>Mon, 04 Nov 2024 19:51:15 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 04 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://Lwxjjr.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Http</title>
-        <link>http://localhost:1313/p/http/</link>
-        <pubDate>Mon, 04 Nov 2024 19:51:15 +0800</pubDate>
+        <link>https://Lwxjjr.github.io/p/http/</link>
+        <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/http/</guid>
+        <guid>https://Lwxjjr.github.io/p/http/</guid>
         <description></description>
         </item>
         <item>
         <title>周赛419</title>
-        <link>http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/</link>
+        <link>https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/</link>
         <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/</guid>
-        <description>&lt;img src="http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/image.jpg" alt="Featured image of post 周赛419" /&gt;&lt;p&gt;心路历程：&lt;br&gt;&lt;/p&gt;
+        <guid>https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/</guid>
+        <description>&lt;img src="https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/image.jpg" alt="Featured image of post 周赛419" /&gt;&lt;p&gt;心路历程：&lt;br&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;前2题目没有考虑性质，写了很长的代码&lt;/li&gt;
 &lt;li&gt;第三题优化问题超时&lt;/li&gt;
@@ -43,10 +43,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;output: &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;解释：&lt;img src=&#34;http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%A4%BA%E4%BE%8B1.jpg&#34;
+&lt;/div&gt;&lt;p&gt;解释：&lt;img src=&#34;https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%A4%BA%E4%BE%8B1.jpg&#34;
 	width=&#34;1025&#34;
 	height=&#34;443&#34;
-	srcset=&#34;http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%A4%BA%E4%BE%8B1_hu13592702442337273208.jpg 480w, http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%A4%BA%E4%BE%8B1_hu10091345920969394558.jpg 1024w&#34;
+	srcset=&#34;https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%A4%BA%E4%BE%8B1_hu13592702442337273208.jpg 480w, https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%A4%BA%E4%BE%8B1_hu10091345920969394558.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;示例1&#34;
@@ -171,10 +171,10 @@ Bob 可以通过以下 3 种出招序列战胜 Alice：&lt;code&gt;&amp;quot;WFW
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;我们希望&lt;code&gt;diff&lt;/code&gt;的值如下图所示（左右侧分别代表我方和对方选择生物）：&lt;br&gt;
-&lt;img src=&#34;http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/diff.jpg&#34;
+&lt;img src=&#34;https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/diff.jpg&#34;
 	width=&#34;957&#34;
 	height=&#34;490&#34;
-	srcset=&#34;http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/diff_hu10506982659187605663.jpg 480w, http://localhost:1313/p/%E5%91%A8%E8%B5%9B419/diff_hu15963289188745311349.jpg 1024w&#34;
+	srcset=&#34;https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/diff_hu10506982659187605663.jpg 480w, https://Lwxjjr.github.io/p/%E5%91%A8%E8%B5%9B419/diff_hu15963289188745311349.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;差值&#34;
